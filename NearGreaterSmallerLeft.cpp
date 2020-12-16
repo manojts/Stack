@@ -14,56 +14,62 @@ class Stack{
 		}
 	};
 
-void PrintSmallerToRight(Stack s,int arr[],int size){
-	int res[size] = {0};
-	for(int i=size-1;i>0;i--)
+void PrintGreaterToLeft(Stack s,int arr[],int size){
+int res[size] = {-1};
+	for(int i = 0;i < size;i++)
 	{
-		if(s.top==-1)
-		{
-			s.push(size-1-i);
-		}
-		else if(arr[i]<=s.arr[s.top])
-		{
-			s.push(size-1-i);
+		if(s.top==-1){
+			s.push(arr[i]);
+			res[i] = -1;
 		}
 		else
 		{
-			while( arr[i] > s.arr[s.top] && s.top >-1 ){
-			res[s.pop()] = arr[i];
-			//s.pop();
-		}
-			s.push(size-1-i);
+			while(s.top>-1 && arr[i] > s.arr[s.top])
+			{
+				s.pop();
+			}
+			if(s.top == -1)
+			{
+				res[i] = -1;
+			}
+			else
+			{
+				res[i] = s.arr[s.top];
+			}
+			s.push(arr[i]);
 		}
 	}
-	for(int i=0;i<=s.top;i++){
-		res[s.arr[i]]=-1;
-	}
-	for(int i=0;i<size;i++){
+	for(int i = 0 ;i<size;i++){
 		cout<<res[i]<<" ";
 	}
 }
 void PrintSmallerToLeft(Stack s,int arr[],int size){
-	for(int i=0;i<size;i++){
+int res[size] = {-1};
+	for(int i = 0;i < size;i++)
+	{
 		if(s.top==-1){
 			s.push(arr[i]);
-			cout<<-1<<" ";
+			res[i] = -1;
 		}
-		else if(arr[i]>s.arr[s.top] ){
-			cout<<s.arr[s.top]<<" ";
-			s.push(arr[i]);
-		}
-		else {
-			while(arr[i] < s.arr[s.top] && s.top>-1){
+		else
+		{
+			while(s.top>-1 && arr[i] < s.arr[s.top])
+			{
 				s.pop();
 			}
-			if(s.top==-1){
-				cout<<-1<<" ";
+			if(s.top == -1)
+			{
+				res[i] = -1;
 			}
-			else{
-				cout<<s.arr[s.top]<<" ";
+			else
+			{
+				res[i] = s.arr[s.top];
 			}
 			s.push(arr[i]);
 		}
+	}
+	for(int i = 0 ;i<size;i++){
+		cout<<res[i]<<" ";
 	}
 }
 int main(){
@@ -73,8 +79,8 @@ int main(){
 	s.top = -1;
 	Stack s1;
 	s1.top = -1;
-	PrintSmallerToRight(s,arr,size);
+	PrintGreaterToLeft(s,arr,size);
 	cout<<endl;
-	//PrintSmallerToLeft(s1,arr,size);
+	PrintSmallerToLeft(s1,arr,size);
 	
 }
