@@ -13,6 +13,7 @@ class Stack{
 			return arr[top--];
 		}
 	};
+//NGL index
 
 void StockSpan(Stack s,int arr[],int size){
 	Stack s1;

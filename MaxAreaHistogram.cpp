@@ -31,14 +31,15 @@ void NSR(int arr[],int size,int res[]){
 	s1.top= -1;
 	for(int i = size-1;i>=0;i--)
 	{
-		if(s.top==-1){
+		if(s.top==-1)
+		{
 			s.push(arr[i]);
 			s1.push(i);
 			res[i] = size ;
 		}
 		else
 		{
-			while(s.top>-1 && arr[i] < s.arr[s.top])
+			while(s.top>-1 && arr[i] <=s.arr[s.top])
 			{
 				s.pop();
 				s1.pop();
@@ -55,9 +56,9 @@ void NSR(int arr[],int size,int res[]){
 			s1.push(i);
 		}
 	}
-
 }  
-void NSL(int arr[],int size,int width[]){
+void NSL(int arr[],int size,int width[])
+{
 	Stack s,s1;
 	s.top = -1;
 	s1.top = -1;
@@ -71,7 +72,7 @@ void NSL(int arr[],int size,int width[]){
 		}
 		else
 		{
-			while(s.top>-1 && arr[i] < s.arr[s.top])
+			while(s.top>-1 && arr[i] <=s.arr[s.top])
 			{
 				s.pop();
 				s1.pop();
@@ -88,16 +89,16 @@ void NSL(int arr[],int size,int width[]){
 			s1.push(i);
 		}
 	}
-	for(int i=0;i<size;i++){
+	for(int i=0;i<size;i++)
+	{
 		width[i] = width[i] - res[i] -1;
 		width[i] = width[i] * arr[i];
 	}
-
 }
 int main(){
-	int arr[] = { 6, 2, 5, 4, 5, 1, 6 };
-	int n = 7;
-	int width [7]={0};
+	int arr[] = { 11,11,10,10,10 };
+	int n = 5;
+	int width [n]={0};
 	NSR(arr,n,width);
 	NSL(arr,n,width);
 	int max = 0;
@@ -109,6 +110,4 @@ int main(){
 	}
 	cout<<endl;
 	cout<<"Maximum area is "<<max<<endl;
-
-
 }

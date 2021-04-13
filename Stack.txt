@@ -1,0 +1,23 @@
+C++ Stack STL
+Declaration
+	stack <int> s;
+
+Functions.
+	s.size()
+		size() 	– 	Returns the size of the stack – Time Complexity : O(1) 
+
+	s.empty()
+		empty() – 	Returns whether the stack is empty – Time Complexity : O(1) 
+					Returns true, if stack is empty
+					false otherwise.
+
+	s.top()
+		top() 	– 	Returns a reference to the top most element of the stack – Time Complexity : O(1) 
+
+	s.push(data)
+		push(g) – 	Adds the element ‘g’ at the top of the stack – Time Complexity : O(1) 
+
+	s.pop()
+		pop() 	– 	Deletes the top most element of the stack – Time Complexity : O(1) 
+		 
+	Indexing of stack elements is not possible in STL Stack, to do it use the vector or user defined stack.
